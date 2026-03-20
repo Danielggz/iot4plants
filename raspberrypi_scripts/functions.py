@@ -1,3 +1,6 @@
+import csv
+import os
+
 #get cpu temperature
 def get_cpu_temp():
     with open("/sys/class/thermal/thermal_zone0/temp", "r") as f:

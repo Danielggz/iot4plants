@@ -8,7 +8,8 @@ import random
 import csv
 import os
 #Sun conditions script
-from functions import estimate_sunlight_hours, get_cpu_temp
+from functions import estimate_sunlight_hours, get_cpu_temp, log_to_csv
+
 #Get senseHat
 sense = SenseHat()
 #Time metrics
@@ -21,7 +22,7 @@ tempArray = []
 #timer
 start_time = time.time()
 #csv storage
-csv_file = "./data/conditionsData.csv"
+csv_file = "./data/conditionsData_day3.csv"
 
 os.makedirs("./data", exist_ok=True)
 
