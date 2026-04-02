@@ -6,28 +6,130 @@
   <script src="https://cdn.jsdelivr.net/npm/powerbi-client@2.23.0/dist/powerbi.js"></script>
 
   <style>
+    /* GLOBAL RESET */
     body {
       margin: 0;
       padding: 0;
-      background: #f5f5f5;
+      background: #eef1f5;
       font-family: Arial, sans-serif;
     }
 
-    #reportContainer {
-      width: 100vw;
-      height: 100vh;
-      border: none;
+    /* NAVBAR */
+    .navbar {
+      width: 100%;
+      height: 60px;
+      background: #2e7d32; /* plant green */
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 25px;
+      box-sizing: border-box;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: 1000;
     }
+
+    .nav-title {
+      font-size: 20px;
+      font-weight: 600;
+    }
+
+    .nav-right {
+      display: flex;
+      gap: 20px;
+    }
+
+    .nav-link {
+      color: white;
+      text-decoration: none;
+      font-size: 15px;
+      font-weight: 500;
+      transition: opacity 0.2s ease;
+    }
+
+    .nav-link:hover {
+      opacity: 0.75;
+    }
+
+    /* PAGE HEADER */
+    .page-header {
+      max-width: 900px;
+      margin: 100px auto 20px auto; /* pushes content below navbar */
+      padding: 10px 5px;
+      color: #333;
+    }
+
+    .page-title {
+      font-size: 32px;
+      font-weight: 700;
+      margin-bottom: 5px;
+    }
+
+    .page-subtitle {
+      font-size: 16px;
+      color: #666;
+      margin-bottom: 10px;
+    }
+
+    .page-intro {
+      font-size: 14px;
+      line-height: 1.5;
+      color: #555;
+    }
+
+    /* REPORT CONTAINER */
+    #reportContainer {
+      max-width: 1400px;
+      margin: 0 auto 40px auto;
+      padding: 0 20px;
+      box-sizing: border-box;
+    }
+
+    iframe {
+      width: 100%;
+      height: calc(100vh - 180px); /* fits under navbar + header */
+      border: none;
+      border-radius: 8px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+      background: white;
+    }
+
   </style>
 </head>
 <body>
+  <nav class="navbar">
+    <div class="nav-left">
+      <span class="nav-title">IoT for Plants</span>
+    </div>
 
-<div id="reportContainer">
-  <iframe width="1200px" height="800px"
-      src="<%= iframeUrl %>" 
-      allowfullscreen="true">
-  </iframe>
-</div>
+    <div class="nav-right">
+      <a href="/" class="nav-link">Home</a>
+      <a href="/dataSource" class="nav-link">Data Source</a>
+    </div>
+  </nav>
+
+  <div class="page-header">
+    <div class="page-title">IoT for Plants</div>
+    <div class="page-subtitle">
+      A study on ideal conditions to grow house plants using Raspberry Pi sensor data.
+    </div>
+
+    <p class="page-intro">
+      This dashboard explores how temperature, humidity, and light levels impact the health and growth
+      of indoor plants. Data is collected from Raspberry Pi devices with connected sensors and
+      transformed into insights to help identify ideal growing conditions.
+    </p>
+  </div>
+
+  <div id="reportContainer">
+    <iframe width="1200px" height="800px"
+        src="<%= iframeUrl %>" 
+        allowfullscreen="true">
+    </iframe>
+  </div>
 
 </body>
 </html>
