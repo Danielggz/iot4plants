@@ -1,11 +1,33 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title><%= title %></title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
-  </head>
-  <body>
-    <h1><%= title %></h1>
-    <p>Welcome to <%= title %></p>
-  </body>
+<head>
+  <meta charset="UTF-8" />
+  <title><%= title %></title>
+  <script src="https://cdn.jsdelivr.net/npm/powerbi-client@2.23.0/dist/powerbi.js"></script>
+
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: #f5f5f5;
+      font-family: Arial, sans-serif;
+    }
+
+    #reportContainer {
+      width: 100vw;
+      height: 100vh;
+      border: none;
+    }
+  </style>
+</head>
+<body>
+
+<div id="reportContainer">
+  <iframe width="1200px" height="800px"
+      src="<%= iframeUrl %>" 
+      allowfullscreen="true">
+  </iframe>
+</div>
+
+</body>
 </html>
